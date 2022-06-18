@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.search {
+  height: 5vh;
+  margin-bottom: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search h1 {
+  font-size: 4em;
+  margin-top: 5vh;
+}
+.searchTerm {
+  width: 15vw;
+  border: 3px solid #006dcc;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px;
+  color: #9dbfaf;
+}
