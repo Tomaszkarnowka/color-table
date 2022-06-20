@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createSearchParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Products from "./Products";
 import ProductsPagination from "./ProductsPagination";
@@ -13,6 +14,7 @@ const DataFetching = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState();
   const [search, setSearch] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -55,9 +57,6 @@ const DataFetching = () => {
       setCurrentPage(currentPage + 1);
     }
   };
-  const searchHandler = (e) => {
-    setSearch(e.target.value);
-  };
 
   return (
     <div className={classes.container}>
@@ -66,7 +65,10 @@ const DataFetching = () => {
         <input
           type="text"
           placeholder="Search"
-          onChange={searchHandler}
+          onChange={(e) => {
+            setSearchParams(createSearchParams({ id: e.target.value }));
+            setSearch(e.target.value);
+          }}
           className={classes.searchTerm}
           onKeyPress={(e) => {
             if (!/[0-9]/.test(e.key)) {

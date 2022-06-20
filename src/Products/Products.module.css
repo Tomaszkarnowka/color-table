@@ -11,7 +11,7 @@ body {
 .table_fill {
   border-radius: 3px;
   border-collapse: collapse;
-  height: 320px;
+  height: max-content;
   margin: auto;
   max-width: 600px;
   padding: 5px;
