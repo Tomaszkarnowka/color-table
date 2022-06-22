@@ -7,6 +7,7 @@ import ProductsPagination from "./ProductsPagination";
 import classes from "./DataFetching.module.css";
 
 const PRODUCTS_PER_PAGE = 5;
+const API_URL = "https://reqres.in/api";
 
 const DataFetching = () => {
   const [products, setProducts] = useState([]);
@@ -22,29 +23,22 @@ const DataFetching = () => {
       try {
         const idParam = search ? `&id=${search}` : "";
         const res = await axios.get(
-          `https://reqres.in/api/products?per_page=${PRODUCTS_PER_PAGE}&page=${currentPage}${idParam}`
+          `${API_URL}/products?per_page=${PRODUCTS_PER_PAGE}&page=${currentPage}${idParam}`
         );
+        const products = res.data.data;
+        setProducts(Array.isArray(products) ? products : [products]);
 
-        if (Array.isArray(res.data.data)) {
-          setProducts(res.data.data);
-        } else {
-          setProducts([res.data.data]);
-        }
-
-        setLoading(false);
         setTotalPages(res.data.total_pages);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchProducts();
   }, [currentPage, search]);
 
   //page change
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   const prevPage = () => {
     if (currentPage > 1) {
@@ -82,7 +76,7 @@ const DataFetching = () => {
       <ProductsPagination
         totalPages={totalPages}
         currentPage={currentPage}
-        paginate={paginate}
+        paginate={(pageNumber) => setCurrentPage(pageNumber)}
         prevPage={prevPage}
         nextPage={nextPage}
       />

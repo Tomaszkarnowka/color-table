@@ -1,13 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
 
-body {
-  background-color: #3e94ec;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
-}
-
 .table_fill {
   border-radius: 3px;
   border-collapse: collapse;

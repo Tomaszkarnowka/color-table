@@ -16,6 +16,7 @@
   transition: background-color 0.3s;
   border: 1px solid rgb(0, 0, 0);
   margin: 0 4px;
+  cursor: pointer;
 }
 
 .active {
