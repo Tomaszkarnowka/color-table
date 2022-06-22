@@ -24,3 +24,9 @@
   color: white;
   border: 1px solid #697073;
 }
+.inactive {
+  background-color: #3e94ec;
+  cursor: auto;
+
+  color: black;
+}
