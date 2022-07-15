@@ -1,0 +1,32 @@
+.pagination_wrapper {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.page_numbers {
+  color: #d5dde5;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #373b43;
+  transition: background-color 0.3s;
+  border: 1px solid rgb(0, 0, 0);
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #050505;
+  color: white;
+  border: 1px solid #697073;
+}
+.inactive {
+  background-color: #3e94ec;
+  cursor: auto;
+
+  color: black;
+}
